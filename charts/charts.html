@@ -1,0 +1,30 @@
+---
+layout: default
+projects:
+  - pinoss/jekyll-github-plugins
+---
+
+{% for project in page.projects_data %}
+  {% include project-charts.html %}
+{% endfor %}
+
+<script>
+  var ProjectsChartsData = {
+    {% for project in page.projects_data %}
+    {{ project[1].code_frequency.series }}
+      '{{ project[1].name }}': {
+        'charts': {
+          {% if project[1].pie_chart %}'pieChart': {{ project[1].pie_chart }},{% endif %}
+          {% if project[1].code_frequency %}'codeFrequency': {{ project[1].code_frequency }},{% endif %}
+          {% if project[1].commit_activity %}'commitActivity': {{ project[1].commit_activity }},{% endif %}
+          {% if project[1].commits_per_hour %}'commitsPerHour': {{ project[1].commits_per_hour }},{% endif %}
+          {% if project[1].commits_per_weekday %}'commitsPerWeekday': {{ project[1].commits_per_weekday }},{% endif %}
+        }
+      },
+    {% endfor %}
+  };
+</script>
+
+<!-- you can download highcharts.js from http://www.highcharts.com/download, charts plugin has been tested and work correctly with Highcharts v4 (4.0.1) -->
+<script src="{{ "/js/plugins/highcharts.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/github-charts.js" | prepend: site.baseurl }}"></script>

@@ -1,0 +1,12 @@
+---
+layout: default
+users:
+  pinoss:
+    name: Maciej Paruszewski
+    github: true
+    description: Ruby developer from Wroclaw, Poland.
+---
+
+{% for user in page.users_data %}
+  {% include user.html %}
+{% endfor %}

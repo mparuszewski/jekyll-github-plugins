@@ -1,0 +1,18 @@
+---
+layout: default
+issues:
+  - pinoss/jekyll-github-plugins
+---
+<script>
+  var ProjectsIssuesData = {
+    'titles':    {{ page.issues_titles }},
+    'authors':   {{ page.issues_authors }},
+    'assignees': {{ page.issues_assignees }}
+  };
+</script>
+
+<!-- you can download typeahead.min.js from http://twitter.github.io/typeahead.js/, issues plugin has been tested and work correctly with typeahead v0.10 (0.10.2) -->
+<script src="{{ "/js/plugins/typeahead.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/issues.js" | prepend: site.baseurl }}"></script>
+
+{% include issues.html %}
