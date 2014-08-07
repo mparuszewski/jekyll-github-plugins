@@ -14,11 +14,36 @@ export OCTOKIT_PASWD=your-paswd
 
 # Charts
 
+Charts plugin gives you few simple charts with statistics about your repositories. Only what you need to do is to copy content of /charts directory to main directory with your jekyll blog and in file where you want to download GitHub charts data add in Meta Data projects with project name (user-name/project-name), and all data required for charts will be downloaded. You can use charts.html file from /charts repository and charts.js to have fully working charts. You need to download and use Highcharts (<http://www.highcharts.com/>) v4.0 to have working charts.
+
+```yaml
+---
+projects:
+  - pinoss/jekyll-github-plugins
+---
+```
+
 # Issues
+
+Issues plugin gives you simple, but powerfull issues filter. Only what you need to do is to copy content of /issues directory to main directory with your jekyll blog and in file where you want to download GitHub issues data add in Meta Data projects with project name (user-name/project-name), and all data required for issues will be downloaded. You can use issues.html file from /issues repository and issues.js to have fully working issues filter. You need to download Twitter Typeahead (<https://twitter.github.io/typeahead.js/>) to have working input autocomplete.
+
+```yaml
+---
+projects:
+  - pinoss/jekyll-github-plugins
+---
+```
+
+If you have labels for your issues with same prefix, ie. 'Language-C', 'Language-Ruby' and 'Language-Python' and you want to create additional filter for your issues add to your config.yml file:
+
+```yml
+issues:
+  special_filters: Lanugage Prefix1 Prefix2
+```
 
 # People
 
-People plugins gives you ability to git more data about people from GitHub. Only what you need to do is to copy content of /people directory to main directory with your jekyll blog and in file where you want to download GitHub users data add in Meta Data users attribute with GitHub users login and more information that overrides data downloaded from GitHub (you can override and display data with name: name, projects, description, avatar\_url, profile\_url, blog, location)
+People plugin gives you ability to git more data about people from GitHub. Only what you need to do is to copy content of /people directory to main directory with your jekyll blog and in file where you want to download GitHub users data add in Meta Data users attribute with GitHub users login and more information that overrides data downloaded from GitHub (you can override and display data with name: name, projects, description, avatar\_url, profile\_url, blog, location)
 
 ```yaml
 ---
